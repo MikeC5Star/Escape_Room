@@ -108,18 +108,13 @@ FHitResult UGrabber::GetFirstPhysicsBodyInReach()
 {
 	
 	FHitResult Hit;
-	if (GetWorld()->LineTraceSingleByObjectType(
+	GetWorld()->LineTraceSingleByObjectType(
 		OUT Hit,
 		GetPlayerLocation(),
 		GetLineTraceEnd(Reach),
 		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),
-		FCollisionQueryParams(FName(TEXT("")), false, GetOwner())
-	))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Object Hit %s"), *Hit.Actor->GetName());
-
-		return Hit;
-	}
+		FCollisionQueryParams(FName(TEXT("")), false, GetOwner()));
+	
 	return Hit;
 }
 

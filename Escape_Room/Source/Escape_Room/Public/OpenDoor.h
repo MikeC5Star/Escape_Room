@@ -28,7 +28,12 @@ public:
 	void OpenDoor();
 	void CloseDoor();
 
+	float GetTotalMassOnTriggerPlate() const;
+
 private:
+	UPROPERTY(EditAnywhere)
+		float TriggerMassNeeded = 100.0f;
+
 	UPROPERTY(VisibleAnywhere)
 		float OpenAngle = 90.0f;
 
@@ -39,9 +44,6 @@ private:
 		float DoorCloseDelay = 1.0f;
 
 	float LastOpenTime;
-
-	UPROPERTY(EditAnywhere)
-		AActor* ActorThatOpensDoor;
 		
 	AActor* Owner;
 };
