@@ -30,13 +30,15 @@ public:
 	void BindInputComponentBehaviours();
 	FHitResult GetFirstPhysicsBodyInReach();
 
-private:
-	UPROPERTY(EditAnywhere)
-		float Reach = 100.0f;
+	FVector GetLineTraceEnd( float Reach);
+	FVector GetPlayerLocation();
+	FRotator GetPlayerRotation();
 
+
+private:
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 	UInputComponent* InputComponent = nullptr;
 
 	bool Grabbing = false;
-		
+	float Reach = 100.0f;
 };
